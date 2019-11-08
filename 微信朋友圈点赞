@@ -1,0 +1,35 @@
+auto.waitFor();
+var sum = 0;
+console.show();
+
+launchApp("微信");//启动微信
+text("发现").findOne().parent().click();
+text("朋友圈").findOne().parent().click();
+sleep(1000);
+scoll();//调用执行方法
+
+function scoll() {
+    do {
+        sleep(2000);//暂停2秒 等页面滑动执行完成
+        //当前页面逻辑
+        comment = desc("评论").find();
+        if (!comment.empty()) {
+            console.log("找到评论集合了");
+            comment.forEach(item => {
+                console.log("找到一个评论框");
+                var b = item.click();
+                console.log(b ? "点击评论成功" : "点击评论失败");
+                sleep(1000);
+                if (className("android.widget.TextView").text("赞").exists()) {
+                    className("android.widget.TextView").text("赞").findOne().parent().click();
+                    sleep(1000);
+                    sum++;
+                    console.info("已赞个数：" + sum);
+                }
+            })
+
+        }
+    } while (className("android.widget.ListView")
+        .findOne().scrollForward());
+}
+
