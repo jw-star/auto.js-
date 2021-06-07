@@ -26,7 +26,7 @@ func main() {
 	
     for _, f := range files {
          for _,r := range remvStr {
-              if  strings.Contains(f.Name(),r) {
+              if  r!="" && strings.Contains(f.Name(),r) {
                    os.Remove(localPathstr+f.Name())
               }
          }
