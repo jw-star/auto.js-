@@ -1,5 +1,7 @@
 package main
-
+    /* 
+        下载github 最新 releases 文件到服务器
+    */
 import (
 	"fmt"
 	"io"
