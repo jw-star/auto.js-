@@ -5,6 +5,7 @@
 
 ### githubDow.go  
 
+下载github指定仓库的 releases
 
 ```
 ./githubDow.go -r /2dust/v2rayN/
